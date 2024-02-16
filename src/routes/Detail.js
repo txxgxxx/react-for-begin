@@ -1,5 +1,40 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import styles from "../styles/Detail.module.css";
 function Detail() {
-  return <h1>Detail</h1>;
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [movieDetail, setMovieDetail] = useState([]);
+  const getMovie = async () => {
+    const json = await (
+      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+    ).json();
+    setMovieDetail(json.data.movie);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovie();
+  }, []);
+  return (
+    <div>
+      {loading ? (
+        <h1>loading...</h1>
+      ) : (
+        <div>
+          <img src={movieDetail.large_cover_image} alt={movieDetail.title} />
+          <h2>{movieDetail.title}</h2>
+          <div>
+            <p className={`${styles.des}`}>{movieDetail.description_full}</p>
+            <ul>
+              {movieDetail.genres.map((genre) => (
+                <li key={genre}>{genre}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Detail;
