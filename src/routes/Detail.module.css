@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.detail__poster {
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  position: relative;
+  object-fit: cover;
+  max-width: 400px;
+}
+
+.detail__info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 100%;
+}
+
+.detail__info h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.detail__info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px 0px;
+}
+.detail__info li {
+  margin-right: 10px;
+  font-size: 14px;
+  background-color: dodgerblue;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.detail__info p {
+  opacity: 0.6;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
